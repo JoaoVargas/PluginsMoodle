@@ -1,0 +1,123 @@
+<!-- Settar o container e a caixa-->
+<div id="containerFM" style="
+width: 100%;
+height: 75vh;
+position: relative;
+overflow: hidden;">
+  <div id="caixaRFM" style="
+  /* W e H apenas para testes */
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: url(https://i.imgur.com/XTm0OpY.jpeg) 0%/1200% 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;">
+    <div id="overlay" onclick="inicializarRFS()" style="
+    background-blend-mode: multiply;
+    background: hsla(0, 0%, 0%, 0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    ">
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tenta inicializar o script automaticamente
+  document.getElementById("containerFM").addEventListener("load", inicializarRFS());
+
+
+  function inicializarRFS() {
+    // Constantes dos div's e inicializar variaveis
+    const cont = document.getElementById("containerFM");
+    const cRFM = document.getElementById("caixaRFM");
+    const over = document.getElementById("overlay");
+    let tamContainerWidth = cont.offsetWidth;
+    let tamContainerHeight = cont.offsetHeight;
+    let areaContainerTotal = ((tamContainerWidth + tamContainerHeight) / 2);
+    let tamQuadrado = (areaContainerTotal / 100 * 25);
+
+    // Inicializar as variaveis de posiçao da animacao
+    let dirXRFM = 1;
+    let dirYRFM = 1;
+    let posXRFM = 220;
+    let posYRFM = 135;
+    let limX = tamContainerWidth - tamQuadrado;
+    let limY = areaContainerTotal - tamQuadrado;
+
+    // Tirar o mouse de click do rfm
+    cRFM.style.cursor = "auto";
+
+    // Inicializar var das imagens
+    let index = 0;
+    let posImgs = ["0%", "100%", "200%", "300%", "400%", "500%", "600%", "700%", "800%", "900%", "1000%", "1100%"];
+    
+    // Func da animacao, e atualizacao a cada x frames
+    let id = null;
+    id = setInterval(animation, 5);
+    function animation() {
+      // Variaveis uteis para responsividade
+      tamContainerWidth = cont.offsetWidth;
+      tamContainerHeight = cont.offsetHeight;
+      areaContainerTotal = ((tamContainerWidth + tamContainerHeight) / 2);
+      tamQuadrado = (areaContainerTotal / 100 * 20);
+      limX = tamContainerWidth - tamQuadrado;
+      limY = tamContainerHeight - tamQuadrado;
+
+      // responsividade do rfm
+      cRFM.style.width = tamQuadrado + "px";
+      cRFM.style.height = tamQuadrado + "px";
+
+      // Condicoes para bate volta
+      
+      if (posXRFM > limX || posXRFM < 0 || posYRFM > limY || posYRFM < 0) {
+        cRFM.style.backgroundPositionX = Math.round(Math.random() * (11 - 0 + 1) + 0) + "00%";
+        over.style.backgroundColor = trocaCor();
+        console.log(cRFM.style.backgroundPositionX);
+
+
+        if (posXRFM > limX) {
+          dirXRFM = -1;
+        }
+        if (posXRFM < 0) {
+          dirXRFM = 1;
+        }
+        if (posYRFM > limY) {
+          dirYRFM = -1;
+        }
+        if (posYRFM < 0) {
+          dirYRFM = 1;
+        }
+      }
+
+      posXRFM += dirXRFM;
+      cRFM.style.left = posXRFM + "px"
+      posYRFM += dirYRFM;
+      cRFM.style.top = posYRFM + "px"
+
+      // console.log(posXRFM)
+
+      function trocaImagem() {
+        if (index == posImgs.length - 1) {
+          index = 0;
+          return posImgs[index]
+        }
+
+        index++;
+        return posImgs[index]
+      }
+
+      function trocaCor() {
+        let value1 = Math.round(Math.random() * (350 - 0 + 1) + 0);
+        let value2 = Math.round(Math.random() * (100 - 50 + 1) + 50);
+        let value3 = Math.round(Math.random() * (75 - 25 + 1) + 25);
+
+        return "hsla(" + value1 + ", " + value2 + "%, " + value3 + "%, 0.1)";
+      }
+    }
+  }
+</script>
