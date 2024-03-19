@@ -11,29 +11,17 @@
 </h4>
 
 <p align="center">
-  <a href="#descricao">Descrição</a> •
   <a href="#comousar">Como usar</a> •
   <a href="#exemplares">Exemplares</a> •
   <a href="#creditos">Créditos</a>
 </p>
 
-<h2 id="descricao">
-  Descrição
-</h2>
-
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra pretium convallis. Etiam rutrum sem eu libero vehicula, ac pellentesque metus cursus. Nunc urna risus, laoreet vitae accumsan a, accumsan vitae mi. Nunc fermentum purus et luctus elementum. Pellentesque porttitor lectus quam, in rhoncus quam rutrum ornare.
-</p>
-
-<br>
-
 <h2 id="comousar">
   Como usar
 </h2>
 
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra pretium convallis. Etiam rutrum sem eu libero vehicula, ac pellentesque metus cursus. Nunc urna risus, laoreet vitae accumsan a, accumsan vitae mi. Nunc fermentum purus et luctus elementum. Pellentesque porttitor lectus quam, in rhoncus quam rutrum ornare.
-</p>
+<img src="https://i.imgur.com/Y9YrEKV.gif" alt="" width="600">
+
 
 <br>
 
