@@ -1,7 +1,7 @@
 <!-- Algum dia eu termino a ideia de alterar os estilos em tempo real -->
-<!-- <button onclick="configuraUI()" class="btn btn-primary float-sm-left float-left">
+<button onclick="configuraUI()" class="btn btn-primary float-sm-center float-center">
     Opções de UI
-</button> -->
+</button>
 
 <!-- Container principal para executar o script -->
 <div id="containerUI" style="
@@ -22,24 +22,24 @@
 
     function configuraUI() {
         // Variaveis Gerais para alteraçoes (deixar vazio para voltar ao padrao)
-        let familiaFontePrimaria = "";
+        let familiaFontePrimaria = "Comic Sans MS, Comic Sans, Cursive";
         let familiaFonteSecundaria = "";
         let familiaFonteRealce = "";
 
-        let corFontePrimaria = "";
-        let corFontePrimariaContraste = "";
-        let corFonteSecundaria = "";
+        let corFontePrimaria = "red";
+        let corFontePrimariaContraste = "yellow";
+        let corFonteSecundaria = "pink";
 
-        let corRealcePrimaria = "";
-        let corRealcePrimariaClara = "";
-        let corRealcePrimariaEscura = "";
-        let corRealcePrimariaClaraTransparencia = "";
-        let corRealcePrimariaClaraTransparencia2 = "";
-        let corRealcePrimariaEscuraTransparencia = "";
+        let corRealcePrimaria = "purple";
+        let corRealcePrimariaClara = "mediumpurple";
+        let corRealcePrimariaEscura = "rebeccapurple";
+        let corRealcePrimariaClaraTransparencia = "rgba(147, 112, 219, 0.1)";
+        let corRealcePrimariaClaraTransparencia2 = "rgba(147, 112, 219, 0.2)";
+        let corRealcePrimariaEscuraTransparencia = "rgba(102, 51, 153, 0.4)";
 
-        let corRealceSecundaria = "";
-        let corRealceSecundariaClara = "";
-        let corRealceSecundariaEscura = "";
+        let corRealceSecundaria = "rgba(255, 165, 0, 0.2)";
+        let corRealceSecundariaClara = "rgba(255, 165, 0, 0.1)";
+        let corRealceSecundariaEscura = "rgba(255, 140, 0, 0.4)";
 
         let corFundoGeral = "";
         let corFundoPrincipal = "";
@@ -83,35 +83,40 @@
         barraSuperior.style.backgroundColor = corFundoBarraSuperior;
         barraLateral.style.backgroundColor = corFundoBarraLateral;
 
-        //Exemplo para carregar imagens (Precisa ser assim pq o bloco nao deixa puxar imagem na tag script mas deixa no div)
-        // document.getElementById("imageLoader").innerHTML = `
-        // <div id="loadImage1" style="
-        //   width: 0px;
-        //   height: 0px;
-        //   background: url(https://img1.picmix.com/output/pic/thumb/4/4/9/7/11027944_609d4.gif);
-        //   ">
-        // </div>
-        // <div id="loadImage2" style="
-        //   width: 0px;
-        //   height: 0px;
-        //   background: url(https://i.pinimg.com/originals/d2/cd/66/d2cd664e658f66ca0f1dbd672b3dfa21.gif);
-        //   ">
-        // </div>
-        // `;
-        // const loadImage1 = document.getElementById("loadImage1");
+        principal.style.background = "radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(199,195,42,1) 25%, rgba(44,253,29,1) 50%, rgba(49,70,253,1) 75%, rgba(241,69,252,1) 100%)";
+        barraSuperior.style.background = "linear-gradient(45deg, rgba(227,255,0,1) 0%, rgba(174,255,65,1) 25%, rgba(107,255,124,1) 50%, rgba(54,220,113,1) 74%, rgba(0,255,231,1) 100%";
 
-        //Exemplo de alterações possiveis
-        // geral.style.backgroundImage = loadImage1.style.backgroundImage;
-        // geral.style.backgroundSize = "cover";
-        // principal.style.background = "radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(199,195,42,1) 25%, rgba(44,253,29,1) 50%, rgba(49,70,253,1) 75%, rgba(241,69,252,1) 100%)";
-        // barraSuperior.style.background = "linear-gradient(45deg, rgba(227,255,0,1) 0%, rgba(174,255,65,1) 25%, rgba(107,255,124,1) 50%, rgba(54,220,113,1) 74%, rgba(0,255,231,1) 100%)"
+        document.getElementById("imageLoader").innerHTML = `
+         <div id="loadImage1" style="
+           width: 0px;
+           height: 0px;
+           background: url(https://img1.picmix.com/output/pic/thumb/4/4/9/7/11027944_609d4.gif);
+           ">
+         </div>
+         <div id="loadImage2" style="
+           width: 0px;
+           height: 0px;
+           background: url(https://i.pinimg.com/originals/d2/cd/66/d2cd664e658f66ca0f1dbd672b3dfa21.gif);
+           ">
+         </div>
+         `;
+         
+        const loadImage1 = document.getElementById("loadImage1");
+        const loadImage2 = document.getElementById("loadImage2");
+
+        geral.style.backgroundImage = loadImage1.style.backgroundImage;
+        geral.style.backgroundSize = "cover";
+        barraLateral.style.backgroundImage = loadImage2.style.backgroundImage;
+        barraLateral.style.backgroundSize = "cover";
 
         // ------------------------------------------------------------------------------
         // Sobreescrevendo cada item do css 
 
         changeStylesheetRule(styleSheetAll, "a", "color", corRealcePrimaria);
         changeStylesheetRule(styleSheetAll, "a:hover", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, "a:hover", "text-decoration", "underline");
         changeStylesheetRule(styleSheetAll, "a:focus", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, "a:hover:focus", "color", corRealcePrimariaEscura);
 
         changeStylesheetRule(styleSheetAll, "activity-add", "color", corRealcePrimaria);
 
