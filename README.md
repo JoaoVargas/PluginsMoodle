@@ -41,21 +41,30 @@
   Exemplares
 </h2>
 
-<a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/ConfiguraUI">
-  <h3>
+<h3>
+  <a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/ConfiguraUI">
     ConfiguraUI 🖱️
-  </h3>
-</a>
+  </a>
+</h3>
 
 > Um pluging complexo que permite alterar o css de todos os elementos da pagina principal do moodle.
 Possui temas personalizados prontos.
 
+GIF 
+
+Créditos: João Jargas
 
 <h3>
-  RFScreen Protector 📀
+  <a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/ConfiguraUI">
+    RFScreen Protector 📀
+  </a>
 </h3>
 
+> Pequeno bloco com animação feita em JS com uma imagem se movendo e batendo nos cantos do bloco, semelhando a um protetor de tela estilo DvD.
 
+GIF 
+
+Créditos: Anônimo
 
 <br>
 
