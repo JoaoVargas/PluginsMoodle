@@ -41,22 +41,19 @@
   Exemplares
 </h2>
 
-<ul>
-  <li>
-    <a href="https://github.com/JoaoVargas/PluginsMoodle">
-      <h3>
-        ConfiguraUI 🖱️
-      </h3>
-    </a>
-    <p>
-    </p>
-  </li>
-  <li>
-    <h3>
-      RFScreen Protector 📀
-    </h3>
-  </li>
-</ul>
+<a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/ConfiguraUI">
+  <h3>
+    ConfiguraUI 🖱️
+  </h3>
+</a>
+
+> Um pluging complexo que permite alterar o css de todos os elementos da pagina principal do moodle.
+Possui temas personalizados prontos.
+
+
+<h3>
+  RFScreen Protector 📀
+</h3>
 
 
 

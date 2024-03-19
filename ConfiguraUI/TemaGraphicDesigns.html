@@ -1,0 +1,202 @@
+<!-- Algum dia eu termino a ideia de alterar os estilos em tempo real -->
+<!-- <button onclick="configuraUI()" class="btn btn-primary float-sm-left float-left">
+    Opções de UI
+</button> -->
+
+<!-- Container principal para executar o script -->
+<div id="containerUI" style="
+  width: 0%;
+  height: 0%;
+  position: relative;
+ 	overflow: hidden">
+</div>
+
+<!-- Espaço para carregar as imagens -->
+<div id="imageLoader">
+</div>
+
+<script>
+    // Tenta inicializar o script automaticamente
+    // As vezes não funciona e tem q apertar o botão
+    document.getElementById("containerUI").addEventListener("load", configuraUI());
+
+    function configuraUI() {
+        // Variaveis Gerais para alteraçoes (deixar vazio para voltar ao padrao)
+        let familiaFontePrimaria = "";
+        let familiaFonteSecundaria = "";
+        let familiaFonteRealce = "";
+
+        let corFontePrimaria = "";
+        let corFontePrimariaContraste = "";
+        let corFonteSecundaria = "";
+
+        let corRealcePrimaria = "";
+        let corRealcePrimariaClara = "";
+        let corRealcePrimariaEscura = "";
+        let corRealcePrimariaClaraTransparencia = "";
+        let corRealcePrimariaClaraTransparencia2 = "";
+        let corRealcePrimariaEscuraTransparencia = "";
+
+        let corRealceSecundaria = "";
+        let corRealceSecundariaClara = "";
+        let corRealceSecundariaEscura = "";
+
+        let corFundoGeral = "";
+        let corFundoPrincipal = "";
+        let corFundoBarraSuperior = "";
+        let corFundoBarraLateral = "";
+        let corFundoBlocos = "";
+
+        // ------------------------------------------------------------------------------
+        // Mecanica principal (essa pica aqui faz 280k de If`s pq eu n sei programar)
+
+        // Carrega a stylesheet geral do documento (eles usam algum pluging de css que salva tudo aqui)
+        var styleSheetAll = document.styleSheets[2];
+        // Funcao base para alteracao de regra de css
+        function changeStylesheetRule(stylesheet, selector, property, value) {
+            selector = selector.toLowerCase();
+            property = property.toLowerCase();
+            value = value.toLowerCase();
+
+            for (var i = 0; i < styleSheetAll.cssRules.length; i++) {
+                var rule = styleSheetAll.cssRules[i];
+                if (rule.selectorText === selector) {
+                    rule.style[property] = value;
+                    return;
+                }
+            }
+
+            stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
+        }
+
+        // ------------------------------------------------------------------------------
+        // Backgrounds
+
+        //Settando os elementos (caso queira pegar o fundo de um bloco em especifico da teu jeito)
+        const geral = document.getElementById("page");
+        const principal = document.getElementById("topofscroll");
+        const barraSuperior = document.getElementById("usernavigation").parentNode;
+        const barraLateral = document.getElementById("theme_boost-drawers-blocks");
+
+        geral.style.backgroundColor = corFundoGeral;
+        principal.style.backgroundColor = corFundoPrincipal;
+        barraSuperior.style.backgroundColor = corFundoBarraSuperior;
+        barraLateral.style.backgroundColor = corFundoBarraLateral;
+
+        //Exemplo para carregar imagens (Precisa ser assim pq o bloco nao deixa puxar imagem na tag script mas deixa no div)
+        // document.getElementById("imageLoader").innerHTML = `
+        // <div id="loadImage1" style="
+        //   width: 0px;
+        //   height: 0px;
+        //   background: url(https://img1.picmix.com/output/pic/thumb/4/4/9/7/11027944_609d4.gif);
+        //   ">
+        // </div>
+        // <div id="loadImage2" style="
+        //   width: 0px;
+        //   height: 0px;
+        //   background: url(https://i.pinimg.com/originals/d2/cd/66/d2cd664e658f66ca0f1dbd672b3dfa21.gif);
+        //   ">
+        // </div>
+        // `;
+        // const loadImage1 = document.getElementById("loadImage1");
+
+        //Exemplo de alterações possiveis
+        // geral.style.backgroundImage = loadImage1.style.backgroundImage;
+        // geral.style.backgroundSize = "cover";
+        // principal.style.background = "radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(199,195,42,1) 25%, rgba(44,253,29,1) 50%, rgba(49,70,253,1) 75%, rgba(241,69,252,1) 100%)";
+        // barraSuperior.style.background = "linear-gradient(45deg, rgba(227,255,0,1) 0%, rgba(174,255,65,1) 25%, rgba(107,255,124,1) 50%, rgba(54,220,113,1) 74%, rgba(0,255,231,1) 100%)"
+
+        // ------------------------------------------------------------------------------
+        // Sobreescrevendo cada item do css 
+
+        changeStylesheetRule(styleSheetAll, "a", "color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, "a:hover", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, "a:focus", "color", corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, "activity-add", "color", corRealcePrimaria);
+
+        changeStylesheetRule(styleSheetAll, ".block-add", "color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-link", "color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".block-add:hover", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-link:hover", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".block-add", "background-color", corRealcePrimariaClaraTransparencia2);
+        changeStylesheetRule(styleSheetAll, ".btn-link", "background-color", corRealcePrimariaClaraTransparencia2);
+        changeStylesheetRule(styleSheetAll, ".block-add:hover", "background-color", corRealcePrimariaEscuraTransparencia);
+        changeStylesheetRule(styleSheetAll, ".btn-link:hover", "background-color", corRealcePrimariaEscuraTransparencia);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled):active:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled):active", "background-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled):active", "border-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled):active", "color", corFontePrimariaContraste);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled):active:focus", "color", corFontePrimariaContraste);
+
+        changeStylesheetRule(styleSheetAll, ".block-add", "border-color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-link", "border-color", corRealcePrimaria);
+
+        changeStylesheetRule(styleSheetAll, ".moremenu .nav-link.active", "border-bottom-color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".moremenu .nav-link.active:hover", "border-bottom-color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".moremenu .nav-link:hover", "background-color", corRealcePrimariaClaraTransparencia);
+        changeStylesheetRule(styleSheetAll, ".moremenu .nav-link.active:hover", "background-color", corRealcePrimariaClaraTransparencia);
+        changeStylesheetRule(styleSheetAll, ".navbar-light .navbar-nav .nav-link.active", "color", corFontePrimaria);
+        changeStylesheetRule(styleSheetAll, ".navbar-light .navbar-nav .nav-link", "color", corFontePrimaria);
+        changeStylesheetRule(styleSheetAll, ".navbar-light .navbar-nav .nav-link:hover", "color", corFontePrimaria);
+
+
+        changeStylesheetRule(styleSheetAll, ".text-primary", "color", corRealcePrimaria + "!important");
+        changeStylesheetRule(styleSheetAll, "a.text-primary:hover", "color", corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, ".page-link", "color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".page-link:hover", "color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".page-link:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, ".btn-primary", "color", corFontePrimariaContraste);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:hover", "color", corFontePrimariaContraste);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".drawer-toggles .drawer-toggler .btn", "background-color", corRealceSecundaria);
+        changeStylesheetRule(styleSheetAll, ".drawer-toggles .drawer-toggler .btn:hover", "background-color", corRealceSecundaria);
+        changeStylesheetRule(styleSheetAll, ".drawer-toggles .drawer-toggler .btn:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, ".btn-primary", "background-color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-primary", "border-color", corRealcePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:hover", "background-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:hover", "border-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:focus", "background-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:focus", "border-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled).active:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled).active", "border-color", corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-primary:not(:disabled):not(.disabled).active", "background-color", corRealcePrimariaEscura);
+
+
+        changeStylesheetRule(styleSheetAll, ".btn-secondary", "color", corFontePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-secondary:hover", "color", corFontePrimaria);
+        changeStylesheetRule(styleSheetAll, ".btn-secondary", "background-color", corRealceSecundaria);
+        changeStylesheetRule(styleSheetAll, ".btn-secondary", "border-color", corRealceSecundaria);
+        changeStylesheetRule(styleSheetAll, ".btn-secondary:hover", "background-color", corRealceSecundariaEscura);
+        changeStylesheetRule(styleSheetAll, ".btn-secondary:hover", "border-color", corRealceSecundariaEscura);
+
+        changeStylesheetRule(styleSheetAll, ".maincalendar .calendarmonth td.today .day-number-circle", "background-color", corRealcePrimaria);
+
+        changeStylesheetRule(styleSheetAll, "[role=\"button\"]:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, "a.dropdown-toggle:focus:hover", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, "a.dropdown-toggle:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".block .block-controls .dropdown-toggle", "color", corFontePrimaria);
+
+        changeStylesheetRule(styleSheetAll, ".dropdown-item:hover", "background-color", corRealcePrimaria);
+
+        changeStylesheetRule(styleSheetAll, "#page.drawers", "scrollbar-color", corRealcePrimariaEscuraTransparencia + " " + corRealcePrimariaClaraTransparencia);
+        changeStylesheetRule(styleSheetAll, ".drawercontent", "scrollbar-color", corRealcePrimariaEscuraTransparencia + " " + corRealcePrimariaClaraTransparencia);
+
+        changeStylesheetRule(styleSheetAll, "body", "font-family", familiaFontePrimaria);
+        changeStylesheetRule(styleSheetAll, "body", "color", corFontePrimaria);
+        changeStylesheetRule(styleSheetAll, ".text-muted", "color", corFonteSecundaria + " !important");
+        changeStylesheetRule(styleSheetAll, ".block_recentlyaccesseditems a.dashboard-card small", "color", corFonteSecundaria);
+
+        changeStylesheetRule(styleSheetAll, ".cal_courses_flt", "color", corFonteSecundaria);
+        changeStylesheetRule(styleSheetAll, ".custom-select", "border", "1px solid " + corFonteSecundaria);
+        changeStylesheetRule(styleSheetAll, ".custom-select:focus", "box-shadow", "0 0 0 .2rem " + corRealcePrimariaEscura);
+        changeStylesheetRule(styleSheetAll, ".custom-select:focus", "border-color", corRealcePrimariaEscura);
+
+        changeStylesheetRule(styleSheetAll, ".card", "background-color", corFundoBlocos);
+
+    }
+</script>
