@@ -50,19 +50,19 @@
 > Um pluging complexo que permite alterar o css de todos os elementos da pagina principal do moodle.
 Possui temas personalizados prontos.
 
-GIF 
+<img src="https://i.imgur.com/jwvxgda.gif" alt="" width="600">
 
 Créditos: João Jargas
 
 <h3>
-  <a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/ConfiguraUI">
+  <a href="https://github.com/JoaoVargas/PluginsMoodle/tree/main/RFScreenProtector">
     RFScreen Protector 📀
   </a>
 </h3>
 
 > Pequeno bloco com animação feita em JS com uma imagem se movendo e batendo nos cantos do bloco, semelhando a um protetor de tela estilo DvD.
 
-GIF 
+<img src="https://i.imgur.com/dX6GXbS.gif" alt="" width="600">
 
 Créditos: Anônimo
 
