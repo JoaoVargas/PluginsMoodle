@@ -20,8 +20,17 @@
   Como usar
 </h2>
 
+<ol>
+  <li> Pagina "Painel" no Moodle (https://moodle.joinville.udesc.br/my/) </li> 
+  <li> Ative o modo edição (Canto superior direito) </li> 
+  <li> Clique em "Adicionar um bloco" </li> 
+  <li> Clique em "HTML" </li> 
+  <li> Scrolle pra baixo até achar "(novo bloco HTML)" e clique na engrenagem </li> 
+  <li> Clique em "Configurar bloco (novo bloco HTML)" </li> 
+  <li> Na barra de ferramentas no bloco "Conteúdo" clique na seta e depois no ultimo icone (</>) </li> 
+  <li> Subistitua o que tiver escrito pelo código abaixo e clique em salvar mudanças </li> 
+</ol>
 <img src="https://i.imgur.com/Y9YrEKV.gif" alt="" width="600">
-
 
 <br>
 
